@@ -25,14 +25,15 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap"
       rel="stylesheet"
     />
-
+    <!-- External scripts -->
     <script type="module" src="./scripts.js"></script>
     <script type="module" src="./data.js"></script>
   </head>
   <body>
-
+    <!-- Header Section -->
     <header class="header">
       <div class="header__inner">
+        <!-- Logo -->
         <div class="header__logo">
           <svg
             class="header__shape"
@@ -43,7 +44,7 @@
               d="M52.88 57.62 4.126 37.897a3 3 0 0 0-2.25 5.562L58.95 66.55a11.062 11.062 0 0 0 2.1.849l.154.062c.351.142.714.213 1.071.22 5.35.912 10.682-2.253 12.34-7.577l14.27-45.83C90.694 8.473 87.456 2.307 81.654.5c-5.8-1.806-11.966 1.432-13.773 7.233l-8.23 26.429L49.03 4.479a5 5 0 1 0-9.415 3.37l14.04 39.23-31.087-31.085a4 4 0 1 0-5.657 5.656l35.97 35.97Z"
             ></path>
           </svg>
-
+          <!-- Header Text SVG -->
           <svg
             class="header__text"
             viewBox="0 0 652 74"
@@ -89,14 +90,14 @@
         </div>
       </div>
     </header>
-
+    <!-- Main Content -->
     <main class="list">
       <div class="list__items" data-list-items></div>
       <div class="list__message" data-list-message>No results found. Your filters might be too narrow.</div>
       <button class="list__button" data-list-button></button>
     </main>
 
-
+    <!-- Footer  -->
     <dialog class="overlay" data-list-active>
       <div class="overlay__preview"><img class="overlay__blur" data-list-blur src=""/><img class="overlay__image" data-list-image src=""/></div>
       <div class="overlay__content">

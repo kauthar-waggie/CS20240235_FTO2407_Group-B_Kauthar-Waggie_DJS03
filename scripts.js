@@ -3,29 +3,32 @@ import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
 let page = 1;
 let matches = books
 
-const starting = document.createDocumentFragment()
+// Creating book and author data structures
+const Book = (id, author, image, title, genres, published, description) => ({
+    id, author, image, title, genres, published, description
+});
 
-for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
-    const element = document.createElement('button')
-    element.classList = 'preview'
-    element.setAttribute('data-preview', id)
+const Author = (id, name) => ({ id, name });
+const Genre = (id, name) => ({ id, name });
 
-    element.innerHTML = `
-        <img
-            class="preview__image"
-            src="${image}"
-        />
-        
-        <div class="preview__info">
-            <h3 class="preview__title">${title}</h3>
-            <div class="preview__author">${authors[author]}</div>
-        </div>
-    `
-
-    starting.appendChild(element)
+// Rendering the book list
+function renderBookList(bookList) {
+    const fragment = document.createDocumentFragment();
+    bookList.slice(0, BOOKS_PER_PAGE).forEach(({author, id, image, title }) => {
+        const element = document.createElement('button');
+        element.classList.add('preview');
+        element.setAttribute('data-preview', id);
+        element.innerHTML = `
+            <img class="preview__image" src="${image}" />
+            <div class="preview__info">
+                <h3 class="preview__title">${title}</h3>
+                <div class="preview__author">${authors[author]}</div>
+            </div>
+        `;
+        fragment.appendChild(element);
+    });
+    document.querySelector('[data-list-items]').appendChild(fragment);
 }
-
-document.querySelector('[data-list-items]').appendChild(starting)
 
 const genreHtml = document.createDocumentFragment()
 const firstGenreElement = document.createElement('option')
